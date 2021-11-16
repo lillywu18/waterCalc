@@ -1,0 +1,121 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <div class="question">
+            <h1>How many plants do you water?</h1>
+            <select name="question" id="question1">
+                <option value="5"> No Plants </option>
+                <option value="0"> Between 0 - 5 Plants </option>
+                <option value="-10"> Between 5 - 15 Plants </option>
+                <option value="-20"> 15+ Plants </option>
+            </select> 
+        </div>
+        <div class="explain-result" style="display: none;">
+            <h1 id="answer1"></h1>
+        </div>
+        <div class="question">
+            <h1> How much rainwater do you collect? </h1>
+            <select name="question" id="question2">
+                <option value="-20"> I don't collect rain water </option>
+                <option value="-10"> I collect slightly less than what I usually use </option>
+                <option value="0"> I collect exactly what I use </option>
+                <option value="5"> I collect slightly greater than what I usually use</option>
+            </select>
+        </div>
+        <div class="explain-result" style="display: none;">
+            <h1 id="answer2"></h1>
+        </div>
+        <div class="results">
+            <button onclick="Calculate()"> Calculate My Score!</button>
+            <p>
+                <h1>My Score is: </h1>
+                <h1 id="score"></h1>
+            </p>
+            <h1 id="comment"></h1>
+        </div>
+
+        <div class="explanation">
+            <button onclick="Explain()">Tell me my explainations for my results</button>
+        </div>
+
+        <div class='retake' style="display: none;">
+            <button onclick="Retake()">Retake Quiz</button>
+        </div>
+    </section>
+</body>
+</html>
+
+<script type="text/javascript">
+    let score = 0;
+
+function Calculate() {
+    let q1 = document.getElementById('question1').value;
+    let q2 = document.getElementById('question2').value;
+    score = Number(q1) + Number(q2)
+    document.getElementById('score').innerHTML = score;
+    if (score < 10) {
+        document.getElementById('comment').innerHTML = "Uh oh, that's not a good score";
+    }
+    else {
+        document.getElementById('comment').innerHTML = "Wow, keep up the good work!";
+    }
+}
+
+function Retake() {
+    location.reload()
+}
+
+function Explain() {
+    // working on a looping aspect for this, for now it is hardcoded
+
+    let q1 = document.getElementById('question1').value;
+    q1 = Number(q1);
+    if (q1 === 5) {
+        document.getElementById('answer1').innerText = "You don't own any plants, which means you won't use water on them"
+    }
+    else if (q1 === 0) {
+        document.getElementById('answer1').innerText = "You own some plants, which you will use water for"
+    }
+    else {
+        document.getElementById('answer1').innerText = "You own too many plants, you are using too much water"
+    }
+
+    let q2 = document.getElementById('question2').value;
+    q2 = Number(q2);
+    if (q2 === 0) {
+        document.getElementById('answer2').innerText = "You collect what you use, nice!"
+    }
+    else if (q2 === 5) {
+        document.getElementById('answer2').innerText = "You collect more than what you use, that's a positive impact"
+    }
+    else {
+        document.getElementById('answer2').innerText = "You collect too little rainwater, that is not good"
+    }
+
+    // hide all questions
+    toggle('question', 'none')
+    toggle('results', 'none')
+    toggle('explanation', 'none')
+
+
+    // show all result divs and their explainations
+    toggle('explain-result', 'block')
+    toggle('retake', 'block')
+    // button to retake the quiz
+
+}
+
+function toggle(className, displayState){
+    var elements = document.getElementsByClassName(className)
+
+    for (var i = 0; i < elements.length; i++){
+        elements[i].style.display = displayState;
+    }
+}
+</script>
