@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <div class="question">
+            <h1>How many times did you flush the toilet today?</h1>
+            <select name="question" id="question1">
+                <option value="5"> None </option>
+                <option value="0"> Between 1 - 5 times </option>
+                <option value="-10"> Between 6 - 15 times </option>
+                <option value="-20"> 15+ times </option>
+            </select> 
+        </div>
+        <div class="explain-result" style="display: none;">
+            <h1 id="answer1"></h1>
+        </div>
+        <div class="question">
+            <h1> How much rainwater do you collect? </h1>
+            <select name="question" id="question2">
+                <option value="-20"> I don't collect rain water </option>
+                <option value="-10"> I collect slightly less than what I usually use </option>
+                <option value="0"> I collect exactly what I use </option>
+                <option value="5"> I collect slightly greater than what I usually use</option>
+            </select>
+        </div>
+    </section>
+</head>
+<body>
+
+ <script type="text/javascript">
+    let score = 0;
+
+    function Calculate() {
+    let q1 = document.getElementById('question1').value;
+    let q2 = document.getElementById('question2').value;
+    score = Number(q1) + Number(q2)
+    document.getElementById('score').innerHTML = score;
+    if (score < 10) {
+        document.getElementById('comment').innerHTML = "Uh oh, that's not a good score";
+    }
+    else {
+        document.getElementById('comment').innerHTML = "Wow, keep up the good work!";
+    }
+    }

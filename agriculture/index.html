@@ -4,9 +4,87 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Agricultural Use</title>
 </head>
 <body>
-    
+    <section>
+        <div class="question">
+            <h1>Please select VEGETABLES for your meal:</h1>
+            <select name="question" id="question1">
+                <option value="1"> Onion </option>
+                <option value="2"> Tomato </option>
+                <option value="3"> Carrot </option>
+                <option value="4"> Lettuce </option>
+                <option value="5"> Cucumber </option>
+                <option value="0"> None </option>
+            </select> 
+        </div>
+        <div class="explain-result" style="display: none;">
+            <h1 id="answer1"></h1>
+        </div>
+        <div class="question">
+            <h1> Please select FRUITS for your meal: </h1>
+            <select name="question" id="question2">
+                <option value="-20"> Apple </option>
+                <option value="-10"> Banana </option>
+                <option value="0"> Grapes </option>
+                <option value="5"> Strawberry </option>
+                <option value="5"> Orange </option>
+                <option value="5"> None </option>
+            </select>
+        </div>
+        <div class="explain-result" style="display: none;">
+            <h1 id="answer2"></h1>
+        </div>
+        <div class="question">
+            <h1> Please select GRAINS for your meal: </h1>
+            <select name="question" id="question2">
+                <option value="-20"> Corn </option>
+                <option value="-10"> Golden Potato </option>
+                <option value="0"> Brown Rice </option>
+                <option value="5"> Pasta </option>
+                <option value="5"> Wheat Bread </option>
+                <option value="5"> None </option>
+            </select>
+        </div>
+        <div class="question">
+            <h1> Please select MEATS for your meal: </h1>
+            <select name="question" id="question2">
+                <option value="-20"> Chicken </option>
+                <option value="-10"> Beef </option>
+                <option value="0"> Ham </option>
+                <option value="5"> Bacon </option>
+                <option value="5"> Egg </option>
+                <option value="5"> None </option>
+            </select>
+        </div>
+        <div class="question">
+            <h1> Please select DAIRY for your meal: </h1>
+            <select name="question" id="question2">
+                <option value="-20"> Cheese </option>
+                <option value="-10"> Cow Milk </option>
+                <option value="0"> Yogurt </option>
+                <option value="5"> Pasta </option>
+                <option value="5"> Wheat Bread </option>
+                <option value="5"> None </option>
+            </select>
+        </div>
+        <div class="results">
+            <button onclick="Calculate()"> Calculate My Score!</button>
+            <p>
+                <h1>My Score is: </h1>
+                <h1 id="score"></h1>
+            </p>
+            <h1 id="comment"></h1>
+        </div>
+
+        <div class="explanation">
+            <button onclick="Explain()">Tell me my explainations for my results</button>
+        </div>
+
+        <div class='retake' style="display: none;">
+            <button onclick="Retake()">Retake Quiz</button>
+        </div>
+    </section>
 </body>
 </html>
