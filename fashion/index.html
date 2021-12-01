@@ -19,7 +19,6 @@
                 <option value="2520"> Skirt </option>
                 <option value="4095"> Pants </option>
                 <option value="5355"> Dress </option>
-                <option value="0"> Mask </option>
 
             </select> 
         </div>
@@ -32,7 +31,6 @@
                 <option value="0.6933553282"> Cotton </option>
                 <option value="16.65833333"> Leather </option>
                 <option value="1.028806584"> Denim </option>
-                <option value="0.053583631"> Wool </option>
                 <option value="0.053583631"> Wool </option>
                 <option value=".00358506397"> Silk </option>
                 <option value="0.04301136"> Polyester/Viscose </option>
@@ -69,9 +67,9 @@
 function Calculate() {
     let q1 = document.getElementById('question1').value;
     let q2 = document.getElementById('question2').value;
-    score = Number(q1) * Number(q2)
+    score = Math.round(Number(q1) * Number(q2))
     document.getElementById('score').innerHTML = score;
-    if (score < 10) {
+    if (score > 1500) {
         document.getElementById('comment').innerHTML = "Uh oh, that's not a good score";
     }
     else {
@@ -85,30 +83,19 @@ function Retake() {
 
 function Explain() {
     // working on a looping aspect for this, for now it is hardcoded
-
+    let score = 0
     let q1 = document.getElementById('question1').value;
-    q1 = Number(q1);
-    if (q1 === 5) {
-        document.getElementById('answer1').innerText = "You don't own any plants, which means you won't use water on them"
-    }
-    else if (q1 === 0) {
-        document.getElementById('answer1').innerText = "You own some plants, which you will use water for"
-    }
-    else {
-        document.getElementById('answer1').innerText = "You own too many plants, you are using too much water"
-    }
-
     let q2 = document.getElementById('question2').value;
-    q2 = Number(q2);
-    if (q2 === 0) {
-        document.getElementById('answer2').innerText = "You collect what you use, nice!"
+    score = Math.round(Number(q1) * Number(q2))
+    let material = document.getElementById('question2');
+
+    if (score > 1500) {
+        document.getElementById('answer1').innerText = "Your clothing is manufactured with a non-sustainable material!";
     }
-    else if (q2 === 5) {
-        document.getElementById('answer2').innerText = "You collect more than what you use, that's a positive impact"
+    else if (score < 1501) {
+        document.getElementById('answer1').innerText = "Your clothing is made from a sustainable material. However, still try to bring your water usage down to 0!";
     }
-    else {
-        document.getElementById('answer2').innerText = "You collect too little rainwater, that is not good"
-    }
+    
 
     // hide all questions
     toggle('question', 'none')

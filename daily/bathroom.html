@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,36 +10,52 @@
     <section>
         <div class="question">
             <h1>How many times did you flush the toilet today?</h1>
-            <select name="question" id="question1">
-                <option value="5"> None </option>
-                <option value="0"> Between 1 - 5 times </option>
-                <option value="-10"> Between 6 - 15 times </option>
-                <option value="-20"> 15+ times </option>
-            </select> 
+            <form>
+                <label for="flushes">Number of times:</label><br>
+                <input type="text" id="" name="flushes"><br>
+            </form> 
         </div>
         <div class="explain-result" style="display: none;">
             <h1 id="answer1"></h1>
         </div>
         <div class="question">
-            <h1> How much rainwater do you collect? </h1>
-            <select name="question" id="question2">
-                <option value="-20"> I don't collect rain water </option>
-                <option value="-10"> I collect slightly less than what I usually use </option>
-                <option value="0"> I collect exactly what I use </option>
-                <option value="5"> I collect slightly greater than what I usually use</option>
-            </select>
+            <h1> How many rolls of toilet paper do you use per month? </h1>
+            <form>
+                <label for="rolls">Number of rolls:</label><br>
+                <input type="text" id="rolls" name="rolls"><br>
+            </form> 
+        </div>
+        <div class="question">
+            <h1> How many bottles of shampoo and conditioner do you buy per month? </h1>
+            <form>
+                <label for="bottles">Number of bottles of shampoo and conditioner:</label><br>
+                <input type="text" id="bottles" name="bottles"><br>
+            </form> 
+        </div>
+        <div class="show-result" style="display: none;">
+            <h1 id="finalscore"></h1>
         </div>
     </section>
-</head>
-<body>
+    <div class="results">
+        <button onclick="Calculate()"> Calculate My Score!</button>
+        <p>
+            <h1>My annual bathroom water usage is: </h1>
+            <h1 id= "score" ></h1>
+        </p>
+        <h1 id="comment"></h1>
+    </div>
+</body>
+</html>
 
- <script type="text/javascript">
+<script type="text/javascript">
     let score = 0;
 
-    function Calculate() {
-    let q1 = document.getElementById('question1').value;
-    let q2 = document.getElementById('question2').value;
-    score = Number(q1) + Number(q2)
+function Calculate() {
+
+    let q1 = Number(document.getElementById('flushes')).value * 365 * 1.6;
+    let q2 = Number(document.getElementById('rolls')).value * 12 * 37;
+    let q3 = Number(document.getElementById('bottles')).value * 12 * 21.93;
+    score = Number(q1) + Number(q2) + Number(q3);
     document.getElementById('score').innerHTML = score;
     if (score < 10) {
         document.getElementById('comment').innerHTML = "Uh oh, that's not a good score";
@@ -46,4 +63,7 @@
     else {
         document.getElementById('comment').innerHTML = "Wow, keep up the good work!";
     }
+        document.getElementById('finalscore').innerText = score + " gallons of water used";
     }
+    
+</script>

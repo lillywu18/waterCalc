@@ -11,11 +11,15 @@
         <div class="question">
             <h1>Please select VEGETABLES for your meal:</h1>
             <select name="question" id="question1">
-                <option value="1"> Onion </option>
-                <option value="2"> Tomato </option>
-                <option value="3"> Carrot </option>
-                <option value="4"> Lettuce </option>
-                <option value="5"> Cucumber </option>
+                <option value="33"> Onion </option>
+                <option value="22"> Tomato </option>
+                <option value="23"> Carrot </option>
+                <option value="28"> Lettuce </option>
+                <option value="42"> Cucumber </option>
+                <option value="46"> Pumpkin </option>
+                <option value="45"> Bell Pepper </option>
+                <option value="34"> Broccoli </option>
+                <option value="158"> Corn </option>
                 <option value="0"> None </option>
             </select> 
         </div>
@@ -23,50 +27,58 @@
             <h1 id="answer1"></h1>
         </div>
         <div class="question">
-            <h1> Please select FRUITS for your meal: </h1>
+            <h1> Please select a FRUIT for your meal: </h1>
             <select name="question" id="question2">
-                <option value="-20"> Apple </option>
-                <option value="-10"> Banana </option>
-                <option value="0"> Grapes </option>
-                <option value="5"> Strawberry </option>
-                <option value="5"> Orange </option>
-                <option value="5"> None </option>
+                <option value="83"> Apples </option>
+                <option value="95"> Bananas </option>
+                <option value="73"> Grapes </option>
+                <option value="142"> Peaches </option>
+                <option value="55"> Oranges </option>
+                <option value="190"> Mango </option>
+                <option value="42"> Strawberries </option>
+                <option value="261"> Plums </option>
+                <option value="31"> Pineapple </option>
+                <option value="50"> Raspberries </option>
+                <option value="28"> Watermelon </option>
+                <option value="62"> Kiwi </option>
+                <option value="111"> Pears </option>
+                <option value="115"> Blackberries </option>
+                <option value="101"> Blueberries </option>
+                <option value="0"> None </option>
             </select>
         </div>
         <div class="explain-result" style="display: none;">
             <h1 id="answer2"></h1>
         </div>
-        <div class="question">
+        <div class="question"> 
             <h1> Please select GRAINS for your meal: </h1>
-            <select name="question" id="question2">
-                <option value="-20"> Corn </option>
-                <option value="-10"> Golden Potato </option>
-                <option value="0"> Brown Rice </option>
-                <option value="5"> Pasta </option>
-                <option value="5"> Wheat Bread </option>
-                <option value="5"> None </option>
+            <select name="question" id="question3">
+                <option value="34"> Potatoes </option>
+                <option value="449">  Rice </option>
+                <option value="222"> Pasta </option>
+                <option value="193"> Wheat Bread </option>
+                <option value="0"> None </option>
             </select>
         </div>
         <div class="question">
-            <h1> Please select MEATS for your meal: </h1>
-            <select name="question" id="question2">
-                <option value="-20"> Chicken </option>
-                <option value="-10"> Beef </option>
-                <option value="0"> Ham </option>
-                <option value="5"> Bacon </option>
-                <option value="5"> Egg </option>
-                <option value="5"> None </option>
+            <h1>Ple<h1> Please select MEATS for your meal: </h1>
+            <select name="question" id="question4">
+                <option value="518"> Chicken </option>
+                <option value="1,847"> Beef </option>
+                <option value="680"> Ham </option>
+                <option value="718"> Pork </option>
+                <option value="0"> None </option>
             </select>
         </div>
         <div class="question">
             <h1> Please select DAIRY for your meal: </h1>
-            <select name="question" id="question2">
-                <option value="-20"> Cheese </option>
-                <option value="-10"> Cow Milk </option>
-                <option value="0"> Yogurt </option>
-                <option value="5"> Pasta </option>
-                <option value="5"> Wheat Bread </option>
-                <option value="5"> None </option>
+            <select name="question" id="question5">
+                <option value="606"> Cheese </option>
+                <option value="122"> Cow Milk </option>
+                <option value="142"> Yogurt </option>
+                <option value="665"> Butter </option>
+                <option value="391"> Egg </option>
+                <option value="0"> None </option>
             </select>
         </div>
         <div class="results">
@@ -87,4 +99,73 @@
         </div>
     </section>
 </body>
+
+function Calculate() {
+    let q1 = document.getElementById('question1').value;
+    let q2 = document.getElementById('question2').value;
+    let q3 = document.getElementById('question3').value;
+    let q4 = document.getElementById('question4').value;
+    let q5 = document.getElementById('question5').value;
+    score = Number(q1) + Number(q2) + Number(q3) + Number(q4) + Number(q5) ;
+    document.getElementById('score').innerHTML = score;
+    if (score < 10) {
+        document.getElementById('comment').innerHTML = "Uh oh, that's not a good score";
+    }
+    else {
+        document.getElementById('comment').innerHTML = "Wow, keep up the good work!";
+    }
+}
+
+function Retake() {
+    location.reload()
+}
+
+function Explain() {
+    // working on a looping aspect for this, for now it is hardcoded
+
+    let q1 = document.getElementById('question1').value;
+    q1 = Number(q1);
+    if (q1 === 5) {
+        document.getElementById('answer1').innerText = "You don't own any plants, which means you won't use water on them"
+    }
+    else if (q1 === 0) {
+        document.getElementById('answer1').innerText = "You own some plants, which you will use water for"
+    }
+    else {
+        document.getElementById('answer1').innerText = "You own too many plants, you are using too much water"
+    }
+
+    let q2 = document.getElementById('question2').value;
+    q2 = Number(q2);
+    if (q2 === 0) {
+        document.getElementById('answer2').innerText = "You collect what you use, nice!"
+    }
+    else if (q2 === 5) {
+        document.getElementById('answer2').innerText = "You collect more than what you use, that's a positive impact"
+    }
+    else {
+        document.getElementById('answer2').innerText = "You collect too little rainwater, that is not good"
+    }
+
+    // hide all questions
+    toggle('question', 'none')
+    toggle('results', 'none')
+    toggle('explanation', 'none')
+
+
+    // show all result divs and their explainations
+    toggle('explain-result', 'block')
+    toggle('retake', 'block')
+    // button to retake the quiz
+
+}
+
+function toggle(className, displayState){
+    var elements = document.getElementsByClassName(className)
+
+    for (var i = 0; i < elements.length; i++){
+        elements[i].style.display = displayState;
+    }
+}
+</script>
 </html>
