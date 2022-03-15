@@ -1,0 +1,104 @@
+<style>
+  
+ /* Import Pangolin font */
+    @import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+
+  
+ body {
+ 	font-family: "Pangolin", serif;
+ 	background: #1B98E0;
+
+    /* add waves background image */
+    background: url("https://media1.giphy.com/media/46hpy8xB3MiHfruixn/giphy.gif?cid=790b7611ad27a5408f81f2a2fd84b195090b27783b110d85&rid=giphy.gif&ct=g") no-repeat center center fixed;
+  background-size: 100% 100%;
+   
+ }
+  
+  section {
+    /* center bubbles, 1 per row */
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+    flex-direction: column;
+    align-items:center;
+  }
+  
+
+  h1 {
+  	text-align: center; 
+    color: #FFFFFF;
+  }
+
+  h2 {
+  	text-align: center;
+  	color: #FFFFFF;
+  }
+ 
+  label {
+  	color: #FFFFFF;
+  }
+  
+  .text {
+  	border: 2px solid black;
+    background: transparent;
+    border-radius: 50px;
+    width: 100px;
+    height: 30px;
+  }
+
+  .question {
+  	text-align: center;
+  	border: 5px solid #006494;
+    
+    /* makes bubbles circular */
+    border-radius: 50%;
+    height: 300px;
+    width: 300px;
+    
+    /* vertically centers bubble content */
+    display: flex;
+  	align-items: center;
+    
+    /* put question text and input on different lines 
+    	and also make both of them horizonally centered in bubble */
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    
+    /* spacing between bubbles and other containers
+       using this to act as the scroll feature to show one question
+       at a time */
+    padding: 40px;
+    margin-top: 30%;
+    margin-bottom: 30%;
+  }
+
+  .results {
+  	text-align: center;
+    margin: auto;
+    padding-bottom: 50px;
+  }
+
+  .button {
+  	background-color: #13293D;
+    border: none;
+    color: E8F1F2;
+    padding: 15px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 2px;
+    cursor: pointer;
+    border-radius: 50px;
+    width: 250px;
+    font-family: inherit;
+    font-weight: bold;
+    transition-duration: 0.4s;
+  }
+  .button:hover {
+  	background-color: #006494;
+    color: white;
+  }
+  
+ </style>
