@@ -7,33 +7,35 @@
     <title>Bathroom Water Calculator</title>
 </head>
 <body>
-  <section>
-      	<h1 id="title">Bathroom Water Calculator</h1>
-        <div class="question">
+   <main>
+  		<section class="stage">
+        <h1 id="title">Bathroom Water Calculator</h1>
+        
+        <div class="question ball bubble">
             <h2>How many times did you flush the toilet today?</h2>
             <form>
-                <label for="flushes">Number of times:</label><br>
-                <input type="text" class="text" id="flushes"><br>
+                <label for="flushes">Number of flushes:</label><br>
+                <input type="text" class="text" id="flushes" value="0"><br>
             </form> 
         </div>
         <div class="explain-result" style="display: none;">
             <h2 id="answer1"></h2>
         </div>
-        <div class="question">
+        <div class="question ball bubble">
             <h2> How many rolls of toilet paper do you use per month? </h2>
             <form>
                 <label for="rolls">Number of rolls:</label><br>
-                <input type="text" class="text" id="rolls"><br>
+                <input type="text" class="text" id="rolls" value="0"><br>
             </form> 
         </div>
       	<div class="explain-result" style="display: none;">
             <h2 id="answer2"></h2>
         </div>
-        <div class="question">
+        <div class="question ball bubble">
             <h2> How many bottles of shampoo and conditioner do you buy per month? </h2>
             <form>
-                <label for="bottles">Number of bottles of shampoo and conditioner:</label><br>
-                <input type="text" class = "text" id="bottles"><br>
+                <label for="bottles">Number of bottles:</label><br>
+                <input type="text" class = "text" id="bottles" value="0"><br>
             </form> 
         </div>
       	<div class="explain-result" style="display: none;">
@@ -43,41 +45,60 @@
             <h2 id="finalscore"></h2>
         </div>
         <div class="results">
-        <button class = "button" onclick="Calculate()"> Calculate My Score!</button>
+          <button class = "button" onclick="Calculate()"> Calculate My Score!</button>
 
-            <h2>My estimated annual bathroom water usage in gallons is: </h2>
-            <h2 id= "score" ></h2>
-          
-
-        <h2 id="comment"></h2>
+          <h2 class="results-text">My estimated annual bathroom water usage in gallons is: </h2>
+          <h2 class="results-text" id="score" ></h2>
+          <h2 class="results-text" id="comment"></h2>
         </div>
-  </section>
-</body>
-</html>
+        <div class="question ball bubble" id="tips">
+          <h2>Tips to reduce water usage:</h2>
+          <ul id="tips-list">
+            <li>Take shorter showers and avoid baths</li>
+            <li>Turn off running water when you're not using it</li>
+            <li>Repair leaks and install low-flow shower heads </li>
+            <li>Reduce overall usage of toilet paper and shampoo and conditioner bottles</li>
+            <li>
+              <a target="_blank" rel="noopener noreferrer"
+                 href="https://www3.epa.gov/region1/eco/drinkwater/water_conservation_residents.html" 
+                 >Click To Learn More!</a>
+            </li>
+          </ul>
+        </div>
+  		</section>
+    </main>
 
-<script type="text/javascript">
-    let score = 0;
-
-function Calculate() {
-    let average_use = 10836;
-    let q1 = Number(document.getElementById('flushes').value) * 365 * 1.6;
-    let q2 = Number(document.getElementById('rolls').value) * 12 * 37;
-    let q3 = Number(document.getElementById('bottles').value) * 12 * 21.93;
-    score = Math.round(Number(q1) + Number(q2) + Number(q3));
-    // output = String(score) + " gallons";
-    document.getElementById('score').innerHTML = score;
-  
-  let scale = 100 - (score/average_use) * 100
-   document.getElementById('comment').innerHTML = "Your bathroom water score is " ;
-     document.getElementById('scale').innerHTML = scale;
-  
-     if (score < average_use) {
-        document.getElementById('scale').innerHTML = scale;
-          document.getElementById('comment').innerHTML = "% below the US average. Amazing job!" ;
-     }
-     else{
-       document.getElementById('comment').innerHTML = "% above the US average. Amazing job!" ;
-     }
-    //     document.getElementById('finalscore').innerText = score + " gallons of water used";
-    }
-</script>
+    <script type="text/javascript">
+        function Calculate() {
+                // estimated annual bathroom water usage was calculated based on the bathroom related water usages from https://www.watercalculator.org/footprint/indoor-water-use-at-home/
+            let average_use = 33215;
+        
+            //<!-- let average_use = 10836; -->
+            let q1 = Number(document.getElementById('flushes').value) * 365 * 1.6;
+            let q2 = Number(document.getElementById('rolls').value) * 12 * 37;
+            let q3 = Number(document.getElementById('bottles').value) * 12 * 21.93;
+            let score = Math.round(Number(q1) + Number(q2) + Number(q3));
+            document.getElementById('score').innerHTML = score;
+        
+            let scale = Math.round(100 - ((score / average_use) * 100));
+            document.getElementById('comment').innerHTML = "Your bathroom water score is ";
+        
+                output = String(scale);
+            if (score < average_use) {
+                document.getElementById('comment').innerHTML += output + "% below the US average. Amazing job! Feel free to check out the tips section for ways you can be more environmentally friendly.";
+        
+            } else if (score == average_use) {
+                document.getElementById('comment').innerHTML += output + "Your annual water usage is equivalent to the US average annual water usage. Not bad! Feel free to check out the tips section for ways you can be more environmentally friendly.";
+                
+            } else {
+                let scale = Math.round((score / average_use) * 100);
+                  output = String(scale);
+                document.getElementById('comment').innerHTML 
+        += output + "% above the US average. That's okay, but feel free to check out the tips section for ways you can be more environmentally friendly!";
+            }
+            //     document.getElementById('finalscore').innerText = score + " gallons of water used";
+        }
+          
+              </script>
+          </body>
+        </html>

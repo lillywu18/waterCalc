@@ -1,54 +1,101 @@
-<style>
-  
- /* Import Pangolin font */
-    @import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
 
+/* Import Pangolin font */
+@import url("https://fonts.googleapis.com/css2?family=Pangolin&display=swap");
   
+  
+  /* variables */
+  :root {
+  	--text-color: #006494;
+    --text-color-2: #E8F1F2;
+  } 
+
+
  body {
+ 	/* For some reason, a "j" or "</" appears floating on the left side of the page. 
+   This makes it invisible. All visible text needs to be assigned a color later in css */
+ 	color: transparent;
+   
  	font-family: "Pangolin", serif;
  	background: #1B98E0;
 
+    
+  background: 
     /* add waves background image */
-    background: url("https://media1.giphy.com/media/46hpy8xB3MiHfruixn/giphy.gif?cid=790b7611ad27a5408f81f2a2fd84b195090b27783b110d85&rid=giphy.gif&ct=g") no-repeat center center fixed;
-  background-size: 100% 100%;
+    /* url("https://media1.giphy.com/media/46hpy8xB3MiHfruixn/giphy.gif?cid=790b7611ad27a5408f81f2a2fd84b195090b27783b110d85&rid=giphy.gif&ct=g")  */
+    
+    /* url("https://i.pinimg.com/originals/b7/8d/fd/b78dfdb1f16736f557f9d70fca1b919e.gif") 
+    */
+    
+    /*url("https://i.gifer.com/g32L.gif")
+    */
+    
+    url("https://i.gifer.com/YU7P.gif")
+    
+    
+    /*url("https://i.pinimg.com/originals/a4/a9/fe/a4a9fe14e1794daaae60e39933ae2750.gif")   */
+    
+    /* url('https://i.redd.it/9i5ktvf5ayw31.gif')
+    */
+    
+    
+    no-repeat center center fixed
+    ;
    
+  background-size: 100% 100%;
  }
   
-  section {
-    /* center bubbles, 1 per row */
-   display: flex;
-   justify-content: center;
-   flex-wrap: wrap;
-    flex-direction: column;
-    align-items:center;
-  }
   
+    /* center the .stage horizontally 
+     main is directly above/around the .stage in html hierarchy */
+  main {
+  	display: flex;
+    justify-content: center;
+  }
+  /* center the items inside the .stage
+     I have no idea why this works but ok
+  */
+  .stage {
+  	display: grid;
+  }
+
+  #title {
+  	color: var(--text-color-2);
+  }
 
   h1 {
   	text-align: center; 
-    color: #FFFFFF;
+    color: var(--text-color);
+    margin-bottom: 25%;
   }
 
   h2 {
   	text-align: center;
-  	color: #FFFFFF;
+  	color: var(--text-color);
+    /* move bubble contents downward 
+    so they don't overlap top left glare 
+    << no longer needed b/c z-index changed >>*/
+    /* margin-top: 0%; */
   }
  
   label {
-  	color: #FFFFFF;
+  	color: var(--text-color);
   }
   
   .text {
   	border: 2px solid black;
     background: transparent;
     border-radius: 50px;
+    border-color: #006494;
     width: 100px;
     height: 30px;
+    font-family: "Pangolin", serif;
+    text-align: center;
+    cursor: text;
   }
 
   .question {
   	text-align: center;
-  	border: 5px solid #006494;
+  	/*border: 5px solid #00649499;*/
     
     /* makes bubbles circular */
     border-radius: 50%;
@@ -69,20 +116,35 @@
        using this to act as the scroll feature to show one question
        at a time */
     padding: 40px;
-    margin-top: 30%;
+    
     margin-bottom: 30%;
   }
+  
+  .question * {
+  	/* Elevate bubble contents above the glare 
+    	and all the fancy bubble formatting
+    	Without this, the bubble styling 
+    	prevents user from entering input */
+  	z-index: 100
+  }
+
 
   .results {
   	text-align: center;
     margin: auto;
+    margin-top: 0%;
+    color: var(--text-color);
     padding-bottom: 50px;
+  }
+  
+  .results-text {
+  	color: var(--text-color-2);
   }
 
   .button {
   	background-color: #13293D;
     border: none;
-    color: E8F1F2;
+    color: #E8F1F2;
     padding: 15px 15px;
     text-align: center;
     text-decoration: none;
@@ -97,8 +159,19 @@
     transition-duration: 0.4s;
   }
   .button:hover {
-  	background-color: #006494;
+  	background-color: var(--text-color);
     color: white;
   }
   
- </style>
+  
+  #tips-list {
+  	/* align list items left, next to the bullet point */
+    text-align: left;
+    color: var(--text-color);
+  }
+  
+  /* Makes links the same color as text */
+  a {
+  	color: var(--text-color);
+  }
+  
