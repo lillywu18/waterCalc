@@ -1,6 +1,89 @@
+ /* Affects bottom right glare */
+ .ball {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  position: relative;
+  background: radial-gradient(circle at bottom, #81e8f6, #76deef 10%, #055194 80%, #062745 100%); }
+  .ball:before {
+    content: "";
+    position: absolute;
+    top: 1%; 
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    border-radius: 100%;
+    background: radial-gradient(circle at top, white, rgba(255, 255, 255, 0) 58%);
+    -webkit-filter: blur(5px);
+    filter: blur(5px);
+    z-index: 2; }
+  
+  /* Affects top left glare */
+  .ball:after {
+    content: "";
+    position: absolute;
+    display: none;
+    top: 5%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    border-radius: 100%;
+    -webkit-filter: blur(1px);
+    filter: blur(1px);
+    z-index: 2;
+    -webkit-transform: rotateZ(-30deg);
+    transform: rotateZ(-30deg); }
+  
+  
+  
+  .ball .shadow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0) 50%);
+    -webkit-transform: rotateX(90deg) translateZ(-160px);
+    transform: rotateX(90deg) translateZ(-160px);
+    z-index: 1; }
+  .ball.plain {
+    background: black; }
+    .ball.plain:before, .ball.plain:after {
+      display: none; }
+  .ball.bubble {
+    background: radial-gradient(circle at 50% 55%, rgba(240, 245, 255, 0.9), rgba(240, 245, 255, 0.9) 40%, rgba(225, 238, 255, 0.8) 60%, rgba(43, 130, 255, 0.4));
+    -webkit-animation: bubble-anim 2s ease-out infinite;
+    animation: bubble-anim 2s ease-out infinite; }
+    .ball.bubble:before {
+      -webkit-filter: blur(0);
+      filter: blur(0);
+      height: 80%;
+      width: 40%;
+      background: radial-gradient(circle at 130% 130%, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0) 46%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.8) 58%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0) 100%);
+      -webkit-transform: translateX(131%) translateY(58%) rotateZ(168deg) rotateX(10deg);
+      transform: translateX(131%) translateY(58%) rotateZ(168deg) rotateX(10deg); }
+    .ball.bubble:after {
+      display: block;
+      background: radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 74%, white 80%, white 84%, rgba(255, 255, 255, 0) 100%); }
 
-/* Import Pangolin font */
-@import url("https://fonts.googleapis.com/css2?family=Pangolin&display=swap");
+.stage {
+    width: 300px;
+    height: 300px;
+    display: inline-block;
+    margin: 20px;
+    -webkit-perspective: 1200px;
+    -moz-perspective: 1200px;
+    -ms-perspective: 1200px;
+    -o-perspective: 1200px;
+    perspective: 1200px;
+    -webkit-perspective-origin: 50% 50%;
+    -moz-perspective-origin: 50% 50%;
+    -ms-perspective-origin: 50% 50%;
+    -o-perspective-origin: 50% 50%;
+    perspective-origin: 50% 50%;
+}
+ 
+ /* Import Pangolin font */
+ @import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
   
   
   /* variables */
@@ -16,40 +99,27 @@
  	color: transparent;
    
  	font-family: "Pangolin", serif;
+  font-size: 15px;
  	background: #1B98E0;
 
     
   background: 
     /* add waves background image */
-    /* url("https://media1.giphy.com/media/46hpy8xB3MiHfruixn/giphy.gif?cid=790b7611ad27a5408f81f2a2fd84b195090b27783b110d85&rid=giphy.gif&ct=g")  */
-    
-    /* url("https://i.pinimg.com/originals/b7/8d/fd/b78dfdb1f16736f557f9d70fca1b919e.gif") 
-    */
-    
-    /*url("https://i.gifer.com/g32L.gif")
-    */
-    
     url("https://i.gifer.com/YU7P.gif")
-    
-    
-    /*url("https://i.pinimg.com/originals/a4/a9/fe/a4a9fe14e1794daaae60e39933ae2750.gif")   */
-    
-    /* url('https://i.redd.it/9i5ktvf5ayw31.gif')
-    */
-    
-    
-    no-repeat center center fixed
-    ;
+    no-repeat center center fixed;
    
-  background-size: 100% 100%;
+ 	background-size: 100% 100%;
+   
+   display: flex;
+   justify-content: center;
+   
  }
   
   
-    /* center the .stage horizontally 
-     main is directly above/around the .stage in html hierarchy */
+    /* offset the stage to left to center for real */
   main {
-  	display: flex;
-    justify-content: center;
+		margin-left: -40px;
+    
   }
   /* center the items inside the .stage
      I have no idea why this works but ok
@@ -60,12 +130,30 @@
 
   #title {
   	color: var(--text-color-2);
+    font-size: 50px;
+    font-weight: 1000;
+    margin-left: -210px;
+  }
+  
+  #objective {
+  	color: var(--text-color-2);
+    text-align: center;
+		width: 800px;
+    margin-bottom: 10%;
+    margin-left: -210px;
+  }
+  
+  .translucent-bg {
+  	background-color: rgba(15.70,33.88,50.41,0.5);
+    border-radius: 5px;
+    padding: 10px; /* add space around text */
   }
 
   h1 {
   	text-align: center; 
     color: var(--text-color);
-    margin-bottom: 25%;
+    margin-bottom: 10%;
+    margin-left: -210px;
   }
 
   h2 {
@@ -76,6 +164,7 @@
     << no longer needed b/c z-index changed >>*/
     /* margin-top: 0%; */
   }
+  
  
   label {
   	color: var(--text-color);
@@ -115,9 +204,9 @@
     /* spacing between bubbles and other containers
        using this to act as the scroll feature to show one question
        at a time */
-    padding: 40px;
+    margin-bottom: 10%;
     
-    margin-bottom: 30%;
+    padding: 40px;
   }
   
   .question * {
@@ -128,23 +217,27 @@
   	z-index: 100
   }
 
-
   .results {
   	text-align: center;
     margin: auto;
     margin-top: 0%;
     color: var(--text-color);
     padding-bottom: 50px;
+
   }
   
   .results-text {
   	color: var(--text-color-2);
+    margin-left: -225px;
+  }
+  
+  #results-message, #water-joke {
+  	display: none;
   }
 
   .button {
-  	background-color: #13293D;
     border: none;
-    color: #E8F1F2;
+    color: var(--text-color-2);
     padding: 15px 15px;
     text-align: center;
     text-decoration: none;
@@ -152,22 +245,25 @@
     font-size: 16px;
     margin: 2px 2px;
     cursor: pointer;
+    background-color: #13293D;
     border-radius: 50px;
     width: 250px;
     font-family: inherit;
     font-weight: bold;
     transition-duration: 0.4s;
+    margin-left: -232px;
   }
   .button:hover {
   	background-color: var(--text-color);
     color: white;
   }
   
-  
-  #tips-list {
+  #tips-list, #contributors-list {
   	/* align list items left, next to the bullet point */
     text-align: left;
     color: var(--text-color);
+    
+    font-size: 15px;
   }
   
   /* Makes links the same color as text */
@@ -175,3 +271,7 @@
   	color: var(--text-color);
   }
   
+  /* makes the inside of the text inputs blue */
+  input[type="text"] {
+  	color: var(--text-color);
+  }

@@ -9,8 +9,8 @@
 <body>
    <main>
   		<section class="stage">
-        <h1 id="title">Bathroom Water Calculator</h1>
-        
+        <h1 id="title" >Bathroom Water Calculator</h1>
+        <h3 id="objective" class="translucent-bg">How much water do you use in a single day? How about in a week, month, or year? The answers to these questions might surprise you. Not only is water essential for drinking and cleaning, but it is used abundantly in the production of many everyday items. Furthermore, many of us - especially in developed countries - perceive water as an infinite resource, and can't imagine a future where water is scarce. As climate change brings more droughts and populations continue to grow, it is increasingly crucial for individuals to limit their water footprints. We hope that this water calculator will help raise awareness for how much water you use in order to inspire sustainable and eco-friendly practices. At the bottom of the page, we have included some practical, helpful tips so you can reduce your water footprint.</h3>
         <div class="question ball bubble">
             <h2>How many times did you flush the toilet today?</h2>
             <form>
@@ -32,12 +32,73 @@
             <h2 id="answer2"></h2>
         </div>
         <div class="question ball bubble">
-            <h2> How many bottles of shampoo and conditioner do you buy per month? </h2>
+            <h2> How many bottles of shampoo and conditioner do you use per month? </h2>
             <form>
                 <label for="bottles">Number of bottles:</label><br>
                 <input type="text" class = "text" id="bottles" value="0"><br>
             </form> 
         </div>
+        
+        <div class="question ball bubble">
+            <h2> How many new bath towels do you use every year? </h2>
+            <form>
+                <label for="towel">Number of towels:</label><br>
+                <input type="text" class = "text" id="towel" value="0"><br>
+            </form> 
+        </div>
+        
+        <div class="question ball bubble">
+            <h2> How many bars of hand soap do you use per month? </h2>
+            <form>
+                <label for="handsoap">Number of bars:</label><br>
+                <input type="text" class = "text" id="handsoap" value="0"><br>
+            </form> 
+        </div>
+        
+        <div class="question ball bubble">
+            <h2> For how many minutes do you shower per day? </h2>
+            <form>
+                <label for="shower">Number of minutes:</label><br>
+                <input type="text" class = "text" id="shower" value="0"><br>
+            </form> 
+        </div>
+          
+        <div class="question ball bubble">
+            <h2> How many times do you brush your teeth per day? </h2>
+            <form>
+                <label for="brushing_times">Number of times:</label><br>
+                <input type="text" class="text" id="brushing_times" value="0"><br>
+            </form> 
+        </div>
+        
+        <div class="question ball bubble">
+            <h2> Do you brush your teeth with the water on or off? </h2>
+            <form>
+                <input type="radio" id="on" name="brushing_onoff" value="on" checked>
+									<label for="on">On</label><br>
+								<input type="radio" id="off" name="brushing_onoff" value="off">
+									<label for="off">Off</label><br>
+            </form> 
+        </div>
+          
+        <div class="question ball bubble">
+            <h2> How many times do you wash your hands per day? </h2>
+            <form>
+                <label for="washhands_times">Number of times:</label><br>
+                <input type="text" class="text" id="washhands_times" value="0"><br>
+            </form> 
+        </div>
+        
+        <div class="question ball bubble">
+            <h2> Do you scrub your hands with the water on or off? </h2>
+            <form>
+                <input type="radio" id="on" name="washhands_onoff" value="on" checked>
+									<label for="on">On</label><br>
+								<input type="radio" id="off" name="washhands_onoff" value="off">
+									<label for="off">Off</label><br>
+            </form> 
+        </div>
+        
       	<div class="explain-result" style="display: none;">
             <h2 id="answer3"></h2>
         </div>
@@ -47,9 +108,18 @@
         <div class="results">
           <button class = "button" onclick="Calculate()"> Calculate My Score!</button>
 
-          <h2 class="results-text">My estimated annual bathroom water usage in gallons is: </h2>
-          <h2 class="results-text" id="score" ></h2>
-          <h2 class="results-text" id="comment"></h2>
+          <h2 id="results-message"
+              class="results-text translucent-bg" 
+          	></h2>
+          <h2 id="water-joke"
+              class="results-text translucent-bg" 
+          	></h2>
+          <h2 id="score"
+              class="results-text"  ></h2>
+          <h2 id="comment"
+          	class="results-text" ></h2>
+          <h2 id="stats" 
+          	class="results-text" ></h2>
         </div>
         <div class="question ball bubble" id="tips">
           <h2>Tips to reduce water usage:</h2>
@@ -57,48 +127,164 @@
             <li>Take shorter showers and avoid baths</li>
             <li>Turn off running water when you're not using it</li>
             <li>Repair leaks and install low-flow shower heads </li>
-            <li>Reduce overall usage of toilet paper and shampoo and conditioner bottles</li>
+            <li>Reduce overall usage of toilet paper, shampoo and conditioner bottles</li>
+            <li>Consider investing in low-flow, water-saving toilets and faucets</li>
             <li>
               <a target="_blank" rel="noopener noreferrer"
                  href="https://www3.epa.gov/region1/eco/drinkwater/water_conservation_residents.html" 
                  >Click To Learn More!</a>
             </li>
+             <li>
+              <a target="_blank" rel="noopener noreferrer"
+                 href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSuEWGWlSTwLdwFTg99BqFoR-uciNJ6ObKtDpu4vPZHEictGPmIBCRwUHa1NjA6ZI2jU6I0MHq2E0aS/pubhtml" 
+                 >Spreadsheet with data and citations</a>
+            </li>
+            
+          </ul>
+        </div>
+        
+        
+        <div class="question ball bubble" id="contributors">
+          <h2>Contributors:</h2>
+          <ul id="contributors-list">
+            <li> Jennifer Lee </li>
+            <li> Krithik Vallem </li>
+            <li> Jack Deuser </li>
+            <li> Jon Huber </li>         
           </ul>
         </div>
   		</section>
     </main>
 
     <script type="text/javascript">
-        function Calculate() {
-                // estimated annual bathroom water usage was calculated based on the bathroom related water usages from https://www.watercalculator.org/footprint/indoor-water-use-at-home/
-            let average_use = 33215;
-        
-            //<!-- let average_use = 10836; -->
-            let q1 = Number(document.getElementById('flushes').value) * 365 * 1.6;
-            let q2 = Number(document.getElementById('rolls').value) * 12 * 37;
-            let q3 = Number(document.getElementById('bottles').value) * 12 * 21.93;
-            let score = Math.round(Number(q1) + Number(q2) + Number(q3));
-            document.getElementById('score').innerHTML = score;
-        
-            let scale = Math.round(100 - ((score / average_use) * 100));
-            document.getElementById('comment').innerHTML = "Your bathroom water score is ";
-        
-                output = String(scale);
-            if (score < average_use) {
-                document.getElementById('comment').innerHTML += output + "% below the US average. Amazing job! Feel free to check out the tips section for ways you can be more environmentally friendly.";
-        
-            } else if (score == average_use) {
-                document.getElementById('comment').innerHTML += output + "Your annual water usage is equivalent to the US average annual water usage. Not bad! Feel free to check out the tips section for ways you can be more environmentally friendly.";
-                
-            } else {
-                let scale = Math.round((score / average_use) * 100);
-                  output = String(scale);
-                document.getElementById('comment').innerHTML 
-        += output + "% above the US average. That's okay, but feel free to check out the tips section for ways you can be more environmentally friendly!";
-            }
-            //     document.getElementById('finalscore').innerText = score + " gallons of water used";
+  
+        const daysPerYear = 365;
+        const monthsPerYear = 12;
+          
+        function getNum(elementId) {
+          return Number(document.getElementById(elementId).value);
         }
           
-              </script>
-          </body>
-        </html>
+        function getRadioVal(radioButtonGroupName) {
+            return document.querySelector(`input[name="${radioButtonGroupName}"]:checked`).value;
+        }
+          
+        function getScore() {
+            let q1 = getNum('flushes') * daysPerYear * 1.6;
+          let q2 = getNum('rolls') * monthsPerYear * 37;
+          let q3 = getNum('bottles') * monthsPerYear * 21.93;
+          let q4 = getNum('towel') * 60.6;
+          let q5 = getNum('handsoap') * monthsPerYear; //multiply by bar and container average
+          let q6 = getNum('shower') * daysPerYear * 5;
+        
+          let brushingGallons = getNum('brushing_times') * daysPerYear;
+          let brushWithWaterOn = getRadioVal('brushing_onoff') === 'on';
+          brushingGallons *= brushWithWaterOn ? 4 : 0.25;
+        
+          let washhandsGallons = getNum('washhands_times') * daysPerYear;
+          let scrubWithWaterOn = getRadioVal('washhands_onoff') === 'on';
+          washhandsGallons *= scrubWithWaterOn ? 4 : 1;
+        
+          let score = Math.round(q1 + q2 + q3 + q4 + q5 + q6 + brushingGallons + washhandsGallons);
+          
+          return score;
+        }
+          
+        function Calculate() {
+          let rm = document.getElementById("results-message")
+          rm.innerText = buildResultsMessage();
+          rm.style.display = "block"; // make it visible
+          
+          let wj = document.getElementById("water-joke");
+          wj.innerText = getWaterJoke();
+          wj.style.display = "block"; // make it visible
+        }
+         
+        function buildResultsMessage(){
+        // estimated annual bathroom water usage was calculated based on the bathroom related water usages from https://www.watercalculator.org/footprint/indoor-water-use-at-home/
+        let average_use = 33215;
+        let score = getScore();  
+        let scale = Math.round(100 - ((score / average_use) * 100));
+        
+        let bathtub_use = score / 80;
+        let hydro_flask_use = score * 4;
+        let plastic_water_bottle_use = score * 7.57;
+    
+        let finalText = "My estimated annual bathroom water usage in gallons is:";
+        finalText += `\n\n${score}\n\n`;
+        
+        finalText += "Your bathroom water score is "
+        
+        if (score < average_use) {
+            finalText += String(scale) + "% below the US average. Amazing job! Feel free to check out the tips section for ways you can be more environmentally friendly."
+        } else if (score === average_use) {
+            finalText += String(scale) + ". This is equivalent to the US average annual water usage. Not bad! Feel free to check out the tips section for ways you can be more environmentally friendly."
+        } else {
+            scale = Math.round((score / average_use) * 100);
+            finalText += String(scale) + "% above the US average. That's okay, but feel free to check out the tips section for ways you can be more environmentally friendly!"
+        }
+        
+        finalText += (
+            "\n\nYour annual water usage could fit into " 
+            + bathtub_use + " standard bathtubs, "
+            + hydro_flask_use + " 32oz hydroflasks, and "
+            + plastic_water_bottle_use + " plastic water bottles."
+        )  
+        return finalText;
+        }
+          
+        let seenJokes = new Set();
+        
+        function getWaterJoke() {
+        let waterJokes = [ 
+            'What did the sea say to the sand?\nNothing, it just waved.',
+            'What is the sea say to the river?\nYou can run, but you can\'t tide.',
+            'What did one stream say to the other?\nLet\'s meet around the bend.',
+            'Where do fish wash?\nIn a river basin.',
+            'Who carries out operations in a river?\nA sturgeon.',
+            'Where do fish keep their money?\nIn river banks.',
+            'Why are some fish at the bottom of the ocean?\nBecause they dropped out of school.',
+            'What happens when you get water on a table?\nIt becomes a pool table.',
+            'What runs but never walks?\nWater!',
+            'What keeps a dock floating above water?\nPier pressure.',
+            'Why do male dogs float on water?\nBecause they\'re good buoys.',
+            'What did the sink say to the tap?\nYou\'re a real drip.',
+            'Why is the ocean always on time?\nShe likes to stay current.',
+            'What did one bottled water say to the other?\nWater you doing tonight?',
+            'Why do sharks only swim in salt water?\nBecause pepper makes them sneeze.',
+            'Why did the lake date the river?\nHe heard she had a bubbly personality.',
+            'How do you make a water bed bouncy?\nUse spring water.',
+            'What do you get when you pour boiling water down a rabbit hole?\nHot cross bunnies.',
+            'What do you call it when you get a month\'s worth of rain all at once?\nEngland.',
+            'What\'s the ocean\'s favourite lullaby?\nRoe, roe, roe Your Boat.',
+            'Did you hear about the ocean and the sea having a baby?\nIt was a buoy!',
+            'What do you get if you cross a rabbit with a water hose?\nHare spray.',
+            'When does it rain money?\nWhen there\'s change in the weather.',
+            'How do oceans say goodbye?\nThey wave at each other.',
+            'What did the beach say to the wave?\nLong tide, no sea.',
+            'What did one rain drop say to the other?\nTwo\'s company, three\'s a cloud.',
+            'Who cleans the floor of the ocean?\nA mer-maid.',
+            'What do you call dangerous precipitation?\nA rain of terror.',
+            'What goes up when rain comes down?\nAn umbrella.',
+            'What do you call a wet bear?\nA drizzly bear.' 
+        ];
+        
+        let newJoke = "";
+        
+        do {
+            let randomIndex = Math.floor(Math.random()*waterJokes.length);
+            newJoke = waterJokes[randomIndex];
+            
+            // if every joke has been seen, start over
+            if (seenJokes.size === waterJokes.length) {
+            seenJokes.clear();
+            }
+            
+        } while (seenJokes.has(newJoke)) // avoid repeating jokes
+    
+        seenJokes.add(newJoke);
+        return newJoke;
+        }
+        </script>
+    </body>
+</html>
