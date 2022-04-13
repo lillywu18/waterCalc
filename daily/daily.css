@@ -1,3 +1,6 @@
+ /* Import Pangolin font */
+ @import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+ 
  /* Affects bottom right glare */
  .ball {
   display: inline-block;
@@ -81,10 +84,6 @@
     -o-perspective-origin: 50% 50%;
     perspective-origin: 50% 50%;
 }
- 
- /* Import Pangolin font */
- @import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
-  
   
   /* variables */
   :root {
